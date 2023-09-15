@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <button id="sliceButton">Slice Words</button>
+  <p id="output"></p>
+
+  <script>
+    // Get the slice button element
+    const sliceButton = document.getElementById('sliceButton');
+
+    // Add event listener to the slice button
+    sliceButton.addEventListener('click', function() {
+      // Get the input text
+      const inputText = prompt('Enter a sentence:');
+
+      // Check if the input text is not empty
+      if (inputText) {
+        // Split the input text into an array of words
+        const words = inputText.split(' ');
+
+        // Slice the words
+        const slicedWords = words.map(word => word.slice(0, 20));
+
+        // Join the sliced words back into a sentence
+        const slicedSentence = slicedWords.join(' ');
+
+        // Display the sliced sentence
+        document.getElementById('output').innerHTML = 'Sliced Words: ' + slicedSentence;
+      }
+    });
+  </script>
+  <style>
+    body {
+      background-image: url('opportunity-7958383_1280.png');
+      background-repeat: repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    </style>
+  <button id="substringButton">Substring Words</button>
+  <p id="output"></p>
+
+  <script>
+    // Get the substring button element
+    const substringButton = document.getElementById('substringButton');
+
+    // Add event listener to the substring button
+    substringButton.addEventListener('click', function() {
+      // Get the input text
+      const inputText = prompt('Enter a sentence:');
+
+      // Check if the input text is not empty
+      if (inputText) {
+        // Split the input text into an array of words
+        const words = inputText.split(' ');
+
+        // Substring the words
+        const substringedWords = words.map(word => word.substr(0, 3));
+
+        // Join the substringed words back into a sentence
+        const substringedSentence = substringedWords.join(' ');
+
+        // Display the substringed sentence
+        document.getElementById('output').innerHTML = 'Substringed Words: ' + substringedSentence;
+      }
+    });
+  </script>
+  <button id="replaceButton">Replace Words</button>
+  <p id="output"></p>
+
+  <script>
+    // Get the replace button element
+    const replaceButton = document.getElementById('replaceButton');
+
+    // Add event listener to the replace button
+    replaceButton.addEventListener('click', function() {
+      // Get the input text
+      const inputText = prompt('Enter a sentence:');
+
+      // Check if the input text is not empty
+      if (inputText) {
+        // Replace words manually
+        const replacedText = replaceWords(inputText);
+
+        // Display the replaced text
+        document.getElementById('output').innerHTML = 'Replaced Text: ' + replacedText;
+      }
+    });
+
+    // Function to replace words manually
+    function replaceWords(text) {
+      // Define the word replacements
+      const replacements = {
+        'apple': 'orange',
+        'cat': 'dog',
+        'happy': 'sad'
+        // Add more word replacements as needed
+      };
+
+      // Split the text into an array of words
+      const words = text.split(' ');
+
+      // Iterate over each word in the array
+      const replacedWords = words.map(word => {
+        // Check if the word exists in the replacements object
+        if (replacements.hasOwnProperty(word)) {
+          // If the word exists, replace it with the corresponding value
+          return replacements[word];
+        } else {
+          // If the word doesn't exist, keep it as it is
+          return word;
+        }
+      });
+
+      // Join the replaced words back into a sentence
+      const replacedText = replacedWords.join(' ');
+
+      return replacedText;
+    }
+  </script>
+  <button id="searchButton">Search Words</button>
+  <p id="output"></p>
+
+  <script>
+    // Get the search button element
+    const searchButton = document.getElementById('searchButton');
+
+    // Add event listener to the search button
+    searchButton.addEventListener('click', function() {
+      // Get the input text
+      const inputText = prompt('Enter a sentence:');
+
+      // Check if the input text is not empty
+      if (inputText) {
+        // Search for words manually
+        const searchResults = searchWords(inputText);
+
+        // Display the search results
+        document.getElementById('output').innerHTML = 'Search Results: ' + searchResults.join(', ');
+      }
+    });
+
+    // Function to search for words manually
+    function searchWords(text) {
+      // Define the words to search for
+      const searchWords = ['apple', 'cat', 'happy'];
+      // Add more words to search for as needed
+
+      // Split the text into an array of words
+      const words = text.split(' ');
+
+      // Filter the words that match the search words
+      const searchResults = words.filter(word => searchWords.includes(word));
+
+      return searchResults;
+    }
+  </script>
+  <button id="matchButton">Match Words</button>
+  <p id="output"></p>
+
+  <script>
+    // Get the match button element
+    const matchButton = document.getElementById('matchButton');
+
+    // Add event listener to the match button
+    matchButton.addEventListener('click', function() {
+      // Get the input text
+      const inputText = prompt('Enter a sentence:');
+
+      // Check if the input text is not empty
+      if (inputText) {
+        // Match words manually
+        const matchedWords = matchWords(inputText);
+
+        // Display the matched words
+        document.getElementById('output').innerHTML = 'Matched Words: ' + matchedWords.join(', ');
+      }
+    });
+
+    // Function to match words manually
+    function matchWords(text) {
+      // Define the words to match
+      const matchWords = ['apple', 'cat', 'happy'];
+      // Add more words to match as needed
+
+      // Split the text into an array of words
+      const words = text.split(' ');
+
+      // Filter the words that match the match words
+      const matchedWords = words.filter(word => matchWords.some(matchWord => matchWord === word));
+
+      return matchedWords;
+    }
+  </script>
+  <button id="indexOfButton">Find Index of Words</button>
+  <p id="output"></p>
+
+  <script>
+    // Get the indexOf button element
+    const indexOfButton = document.getElementById('indexOfButton');
+
+    // Add event listener to the indexOf button
+    indexOfButton.addEventListener('click', function() {
+      // Get the input text
+      const inputText = prompt('Enter a sentence:');
+
+      // Check if the input text is not empty
+      if (inputText) {
+        // Find index of words manually
+        const wordIndices = findWordIndices(inputText);
+
+        // Display the word indices
+        document.getElementById('output').innerHTML = 'Word Indices: ' + wordIndices.join(', ');
+      }
+    });
+
+    // Function to find index of words manually
+    function findWordIndices(text) {
+      // Define the words to find indices for
+      const words = ['apple', 'cat', 'happy'];
+      // Add more words as needed
+
+      // Split the text into an array of words
+      const wordsArray = text.split(' ');
+
+      // Create an array to store the indices
+      const wordIndices = [];
+
+      // Iterate over each word in the words array
+      words.forEach(word => {
+        // Find the index of the word in the wordsArray
+        const index = wordsArray.indexOf(word);
+
+        // If the word is found, add its index to the wordIndices array
+        if (index !== -1) {
+          wordIndices.push(index);
+        }
+      });
+
+      return wordIndices;
+    }
+  </script>
+  <button id="lastIndexOfButton">Find Last Index of Words</button>
+  <p id="output"></p>
+
+  <script>
+    // Get the lastIndexOf button element
+    const lastIndexOfButton = document.getElementById('lastIndexOfButton');
+
+    // Add event listener to the lastIndexOf button
+    lastIndexOfButton.addEventListener('click', function() {
+      // Get the input text
+      const inputText = prompt('Enter a sentence:');
+
+      // Check if the input text is not empty
+      if (inputText) {
+        // Find last index of words manually
+        const wordLastIndices = findLastWordIndices(inputText);
+
+        // Display the last word indices
+        document.getElementById('output').innerHTML = 'Last Word Indices: ' + wordLastIndices.join(', ');
+      }
+    });
+
+    // Function to find last index of words manually
+    function findLastWordIndices(text) {
+      // Define the words to find last indices for
+      const words = ['apple', 'cat', 'happy'];
+      // Add more words as needed
+
+      // Split the text into an array of words
+      const wordsArray = text.split(' ');
+
+      // Create an array to store the last indices
+      const wordLastIndices = [];
+
+      // Iterate over each word in the words array
+      words.forEach(word => {
+        // Find the last index of the word in the wordsArray
+        const lastIndex = wordsArray.lastIndexOf(word);
+
+        // If the word is found, add its last index to the wordLastIndices array
+        if (lastIndex !== -1) {
+          wordLastIndices.push(lastIndex);
+        }
+      });
+
+      return wordLastIndices;
+    }
+  </script>
+  <button id="lastIndexOfButton">Find Last Index of Words</button>
+  <p id="output"></p>
+
+  <script>
+    // Get the lastIndexOf button element
+    const lastIndexOfButton = document.getElementById('lastIndexOfButton');
+
+    // Add event listener to the lastIndexOf button
+    lastIndexOfButton.addEventListener('click', function() {
+      // Get the input text
+      const inputText = prompt('Enter a sentence:');
+
+      // Check if the input text is not empty
+      if (inputText) {
+        // Find last index of words manually
+        const wordLastIndices = findLastWordIndices(inputText);
+
+        // Display the last word indices
+        document.getElementById('output').innerHTML = 'Last Word Indices: ' + wordLastIndices.join(', ');
+      }
+    });
+
+    // Function to find last index of words manually
+    function findLastWordIndices(text) {
+      // Define the words to find last indices for
+      const words = ['apple', 'cat', 'happy'];
+      // Add more words as needed
+
+      // Split the text into an array of words
+      const wordsArray = text.split(' ');
+
+      // Create an array to store the last indices
+      const wordLastIndices = [];
+
+      // Iterate over each word in the words array
+      words.forEach(word => {
+        // Find the last index of the word in the wordsArray
+        const lastIndex = wordsArray.lastIndexOf(word);
+
+        // If the word is found, add its last index to the wordLastIndices array
+        if (lastIndex !== -1) {
+          wordLastIndices.push(lastIndex);
+        }
+      });
+
+      return wordLastIndices;
+    }
+
+    // Print variable in text
+    const name = 'John';
+    console.log(`My name is ${name}`);
+
+    // Use if condition for all cases
+    const number = 10;
+    if (number > 0) {
+      console.log('Number is positive');
+    } else if (number < 0) {
+      console.log('Number is negative');
+    } else {
+      console.log('Number is zero');
+    }
+
+    // Use switch case for multiple cases
+    const day = 'Monday';
+    switch (day) {
+      case 'Monday':
+        console.log('It\'s Monday');
+        break;
+      case 'Tuesday':
+        console.log('It\'s Tuesday');
+        break;
+      case 'Wednesday':
+        console.log('It\'s Wednesday');
+        break;
+      default:
+        console.log('It\'s another day');
+    }
+
+    // Make an array of students and loop over them to print their names
+    const students = ['John', 'Jane', 'Mike', 'Emily'];
+    for (let i = 0; i < students.length; i++) {
+      console.log(students[i]);
+    }
+
+    // Make a set of students and print them
+    const studentSet = new Set(['John', 'Jane', 'Mike', 'Emily']);
+    studentSet.forEach(student => {
+      console.log(student);
+    });
+  </script>
+</body>
+</html>
